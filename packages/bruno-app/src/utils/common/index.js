@@ -75,7 +75,6 @@ export const normalizeFileName = (name) => {
 };
 
 export const getContentType = (headers) => {
-  console.log(headers);
   if (headers && headers.length) {
     let contentType = headers
       .filter((header) => header[0].toLowerCase() === 'content-type')
