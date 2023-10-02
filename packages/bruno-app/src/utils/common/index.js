@@ -56,7 +56,7 @@ export const safeParseXML = (str) => {
     return str;
   }
   try {
-    return xmlFormat(str);
+    return xmlFormat(str, { collapseContent: true });
   } catch (e) {
     return str;
   }
@@ -75,11 +75,12 @@ export const normalizeFileName = (name) => {
 };
 
 export const getContentType = (headers) => {
+  console.log(headers);
   if (headers && headers.length) {
     let contentType = headers
       .filter((header) => header[0].toLowerCase() === 'content-type')
       .map((header) => {
-        return header[1];
+        return header;
       });
     if (contentType && contentType.length) {
       if (typeof contentType[0] == 'string' && /^[\w\-]+\/([\w\-]+\+)?json/.test(contentType[0])) {

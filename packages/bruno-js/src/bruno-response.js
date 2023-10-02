@@ -22,6 +22,10 @@ class BrunoResponse {
   getBody() {
     return this.res ? this.res.data : null;
   }
+
+  getRes() {
+    return this.res ? this.res : null;
+  }
 }
 
 module.exports = BrunoResponse;
